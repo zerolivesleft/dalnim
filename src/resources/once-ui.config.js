@@ -1,5 +1,27 @@
+import { home } from "./content";
+
 // IMPORTANT: Replace with your own domain address - it's used for SEO in meta tags and schema
-const baseURL = "https://demo.once-ui.com";
+const baseURL = "https://demo.magic-portfolio.com";
+
+const routes = {
+  "/": true,
+  "/about": false,
+  "/work": true,
+  "/portfolio": true,
+  "/blog": false,
+};
+
+const display = {
+  location: true,
+  time: true,
+  themeSwitcher: true
+};
+
+// Enable password protection on selected routes
+// Set password in the .env file, refer to .env.example
+const protectedRoutes = {
+  "/work/automate-design-handovers-with-a-figma-to-code-pipeline": true,
+};
 
 // Import and set font for each variant
 import { Geist } from "next/font/google";
@@ -38,16 +60,16 @@ const fonts = {
 
 // default customization applied to the HTML in the main layout.tsx
 const style = {
-  theme: "dark", // dark | light - not needed when using ThemeProvider
-  neutral: "gray", // sand | gray | slate
-  brand: "blue", // blue | indigo | violet | magenta | pink | red | orange | yellow | moss | green | emerald | aqua | cyan
-  accent: "indigo", // blue | indigo | violet | magenta | pink | red | orange | yellow | moss | green | emerald | aqua | cyan
-  solid: "contrast", // color | contrast | inverse
+  theme: "system", // dark | light | system
+  neutral: "slate", // sand | gray | slate | custom
+  brand: "moss", // blue | indigo | violet | magenta | pink | red | orange | yellow | moss | green | emerald | aqua | cyan | custom
+  accent: "green", // blue | indigo | violet | magenta | pink | red | orange | yellow | moss | green | emerald | aqua | cyan | custom
+  solid: "contrast", // color | contrast
   solidStyle: "flat", // flat | plastic
-  border: "playful", // rounded | playful | conservative
-  surface: "filled", // filled | translucent
+  border: "rounded", // rounded | playful | conservative
+  surface: "translucent", // filled | translucent
   transition: "all", // all | micro | macro
-  scaling: "100", // 90 | 95 | 100 | 105 | 110
+  scaling: "100" // 90 | 95 | 100 | 105 | 110
 };
 
 const dataStyle = {
@@ -73,67 +95,95 @@ const effects = {
   },
   gradient: {
     display: false,
+    opacity: 100,
     x: 50,
-    y: 0,
+    y: 60,
     width: 100,
-    height: 100,
+    height: 50,
     tilt: 0,
-    colorStart: "brand-background-strong",
-    colorEnd: "static-transparent",
-    opacity: 50,
+    colorStart: "accent-background-strong",
+    colorEnd: "page-background",
   },
   dots: {
     display: true,
-    size: "2",
-    color: "brand-on-background-weak",
     opacity: 40,
-  },
-  lines: {
-    display: false,
-    color: "neutral-alpha-weak",
-    opacity: 100,
-    thickness: 1,
-    angle: 45,
-    size: "8",
+    size: "2",
+    color: "brand-background-strong",
   },
   grid: {
     display: false,
-    color: "neutral-alpha-weak",
     opacity: 100,
-    width: "2",
-    height: "2",
+    color: "neutral-alpha-medium",
+    width: "0.25rem",
+    height: "0.25rem",
+  },
+  lines: {
+    display: false,
+    opacity: 100,
+    color: "neutral-alpha-weak",
+    size: "16",
+    thickness: 1,
+    angle: 45,
   },
 };
 
-// metadata for pages
-const meta = {
-  home: {
-    path: "/",
-    title: "Once UI for Next.js",
-    description:
-      "An open-source design system and component library for Next.js that emphasizes easy styling and accessibility in UI development.",
-    image: "/images/og/home.jpg",
-    canonical: "https://once-ui.com",
-    robots: "index,follow",
-    alternates: [{ href: "https://once-ui.com", hrefLang: "en" }],
-  },
-  // add more routes and reference them in page.tsx
+const mailchimp = {
+  action: "https://url/subscribe/post?parameters",
+  effects: {
+    mask: {
+      cursor: true,
+      x: 50,
+      y: 0,
+      radius: 100,
+    },
+    gradient: {
+      display: true,
+      opacity: 90,
+      x: 50,
+      y: 0,
+      width: 50,
+      height: 50,
+      tilt: 0,
+      colorStart: "accent-background-strong",
+      colorEnd: "static-transparent",
+    },
+    dots: {
+      display: true,
+      opacity: 20,
+      size: "2",
+      color: "brand-on-background-weak",
+    },
+    grid: {
+      display: false,
+      opacity: 100,
+      color: "neutral-alpha-medium",
+      width: "0.25rem",
+      height: "0.25rem",
+    },
+    lines: {
+      display: false,
+      opacity: 100,
+      color: "neutral-alpha-medium",
+      size: "16",
+      thickness: 1,
+      angle: 90,
+    },
+  }
 };
 
 // default schema data
 const schema = {
   logo: "",
   type: "Organization",
-  name: "Once UI",
-  description: meta.home.description,
-  email: "lorant@once-ui.com",
+  name: "Dalnim",
+  description: home.description,
+  email: "jeen.schong@gmail.com",
 };
 
 // social links
-const social = {
-  twitter: "https://www.twitter.com/_onceui",
-  linkedin: "https://www.linkedin.com/company/once-ui/",
-  discord: "https://discord.com/invite/5EyAQ4eNdS",
+const sameAs = {
+  twitter: "https://x.com/ladydalnim",
+  instagram: "https://instagram.com/ladydalnim",
 };
 
-export { baseURL, fonts, style, meta, schema, social, effects, dataStyle };
+export { display, mailchimp, routes, protectedRoutes, baseURL, fonts, style, schema, sameAs, effects, dataStyle };
