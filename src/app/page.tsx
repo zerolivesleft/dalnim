@@ -50,7 +50,7 @@ export default function About() {
     },
   ];
   return (
-    <Column maxWidth="m">
+    <Column maxWidth="m" style={{ minHeight: '60vh', display: 'flex', justifyContent: 'center' }}>
       <Schema
         as="webPage"
         baseURL={baseURL}
@@ -64,7 +64,7 @@ export default function About() {
           image: `${baseURL}${person.avatar}`,
         }}
       />
-      <Flex fillWidth mobileDirection="column" horizontal="center">
+      <Flex fillWidth mobileDirection="column" horizontal="center" style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
         {about.avatar.display && (
           <Column
             className={styles.avatar}
