@@ -171,6 +171,16 @@ export default function About() {
               {about.intro.description}
             </Column>
           )}
+          <Button
+            href="/portfolio"
+            variant="primary"
+            size="l"
+            weight="default"
+            prefixIcon="gallery"
+            style={{ marginTop: 24 }}
+          >
+            View Portfolio
+          </Button>
         </Column>
       </Flex>
     </Column>
