@@ -3,7 +3,7 @@
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
-import { Fade, Flex, Line, ToggleButton } from "@once-ui-system/core";
+import { Fade, Flex, Line, ToggleButton, Button } from "@once-ui-system/core";
 
 import { routes, display, person, about, blog, work, portfolio } from "@/resources";
 import { ThemeToggle } from "./ThemeToggle";
@@ -146,6 +146,20 @@ export const Header = () => {
                   />
                 </>
               )}
+              {/* Commission ToggleButton */}
+              <ToggleButton
+                className="s-flex-hide"
+                prefixIcon="document"
+                href="/commission"
+                label="Commission"
+                selected={pathname.startsWith("/commission")}
+              />
+              <ToggleButton
+                className="s-flex-show"
+                prefixIcon="document"
+                href="/commission"
+                selected={pathname.startsWith("/commission")}
+              />
               {display.themeSwitcher && (
                 <>
                   <Line background="neutral-alpha-medium" vert maxHeight="24" />

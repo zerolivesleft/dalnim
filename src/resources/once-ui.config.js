@@ -9,6 +9,7 @@ const routes = {
   "/work": false,
   "/portfolio": true,
   "/blog": false,
+  "/commission": true,
 };
 
 const display = {
