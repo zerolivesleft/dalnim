@@ -10,7 +10,8 @@ import {
   Tag,
   Text,
   Meta,
-  Schema
+  Schema,
+  Row
 } from "@once-ui-system/core";
 import { baseURL, about, person, social } from "@/resources";
 import styles from "@/components/about/about.module.scss";
@@ -171,16 +172,26 @@ export default function About() {
               {about.intro.description}
             </Column>
           )}
-          <Button
-            href="/portfolio"
-            variant="primary"
-            size="l"
-            weight="default"
-            prefixIcon="gallery"
-            style={{ marginTop: 24 }}
-          >
-            View Portfolio
-          </Button>
+          <Row gap="16" horizontal="start">
+            <Button
+              href="/portfolio"
+              variant="secondary"
+              size="l"
+              weight="default"
+              prefixIcon="gallery"
+            >
+              View Portfolio
+            </Button>
+            <Button
+              href="/commission"
+              variant="secondary"
+              size="l"
+              weight="default"
+              prefixIcon="document"
+            >
+              Commission Me
+            </Button>
+          </Row>
         </Column>
       </Flex>
     </Column>
