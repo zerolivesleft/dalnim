@@ -39,7 +39,7 @@ const SECTIONS = [
 
 export default function Gallery() {
   return (
-    <Flex maxWidth="l" direction="column" gap="48">
+    <Flex maxWidth="l" direction="column" gap="24" padding="12">
       <Schema
         as="webPage"
         baseURL={baseURL}
@@ -59,9 +59,9 @@ export default function Gallery() {
           {section.subsections && section.subsections.length > 0 ? (
             <Flex gap="24" wrap>
               {section.subsections.map((sub) => (
-                <Card key={sub.title} radius="l" padding="24" style={{ minWidth: 240, flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', cursor: 'default' }}>
+                <Card key={sub.title} radius="l" padding="12" style={{ minWidth: 0, flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', cursor: 'default' }}>
                   <Heading as="h3" variant="heading-strong-m" align="center" onBackground="neutral-weak">{sub.title}</Heading>
-                  <Grid fillWidth columns="3" mobileColumns="2" gap="12" style={{ marginTop: 16 }}>
+                  <Grid fillWidth columns="3" mobileColumns="1" gap="12" style={{ marginTop: 16 }}>
                     {[1,2,3,4,5,6].map((i) => (
                       <TiltFx key={i} aspectRatio={4/3} radius="m">
                         <Media
@@ -80,8 +80,8 @@ export default function Gallery() {
             </Flex>
           ) : (
             <Flex gap="24" wrap>
-              <Card radius="l" padding="24" style={{ minWidth: 240, flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', cursor: 'default' }}>
-                <Grid fillWidth columns="3" mobileColumns="2" gap="12" style={{ marginTop: 16 }}>
+              <Card radius="l" padding="12" style={{ minWidth: 0, flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', cursor: 'default' }}>
+                <Grid fillWidth columns="3" mobileColumns="1" gap="12" style={{ marginTop: 16 }}>
                   {[1,2,3,4,5,6].map((i) => (
                     <TiltFx key={i} aspectRatio={4/3} radius="m">
                       <Media
